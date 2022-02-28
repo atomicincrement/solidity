@@ -33,24 +33,11 @@
 using namespace std;
 using namespace solidity;
 
-/*
-The equivalent of setlocale(LC_ALL, "C") is called before any user code is run.
-If the user has an invalid environment setting then it is possible for the call
-to set locale to fail. So that, there is an attempt to set locale via environment
-variable.
-*/
-static void setCLocale()
-{
-#if __unix__
-	setenv("LC_ALL", "C", 1);
-#endif
-}
 
 int main(int argc, char** argv)
 {
 	try
 	{
-		setCLocale();
 		solidity::frontend::CommandLineInterface cli(cin, cout, cerr);
 		return cli.run(argc, argv) ? 0 : 1;
 	}
