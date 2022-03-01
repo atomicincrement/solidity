@@ -95,7 +95,7 @@ void FuzzerSolverInterface::addZ3Constraints(vector<pair<bool, vector<int>>> _co
 		addZ3Constraint(c);
 }
 
-solution FuzzerSolverInterface::checkLP()
+Solution FuzzerSolverInterface::checkLP()
 {
 	return m_lpSolver.check(m_lpSolvingState);
 }
